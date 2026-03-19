@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <!-- Safari / iOS -->
+<link rel="apple-touch-icon" sizes="32x32" href="favicon.ico">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DATSS | Onboarding</title>
+
+  <!-- Favicon -->
+
+  
+  <style>
+    :root {
+      --purple: #6a1b9a;
+      --purple-dark: #1e063c;
+      --purple-light: #492376;
+      --white: #ffffff;
+      --text: #444;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--white);
+    }
+
+    /* NAVBAR */
+    nav {
+      background: var(--purple);
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    nav img {
+      height: 38px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* HERO */
+    header {
+      background: linear-gradient(to right, var(--purple), var(--purple-dark));
+      color: white;
+      padding: 90px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      max-width: 700px;
+      margin: auto;
+      font-size: 1.1rem;
+    }
+
+    .btn {
+      margin-top: 30px;
+      display: inline-block;
+      background: white;
+      color: var(--purple);
+      padding: 12px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: var(--purple-light);
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 80px 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .light {
+      background: var(--purple-light);
+    }
+
+    h2 {
+      color: purple;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    /* CARDS */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 14px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+
+/* TASKS SECTION */
+#tasks {
+  background: var(--purple); /* Purple section background */
+  color: white; /* Text white for contrast */
+  padding: 80px 20px;
+}
+
+#tasks h2 {
+  color: white; /* Make heading white */
+}
+
+#tasks .card {
+  background: rgba(255, 255, 255, 0.1); /* Slightly transparent card for contrast */
+  color: white; /* Ensure text inside cards is visible */
+}
+
+/* CHECKLIST SECTION */
+#checklist {
+  background: var(--white); /* White section background */
+  color: var(--text); /* Dark text for readability */
+  padding: 80px 20px;
+}
+
+#checklist .checklist-title {
+  color: #6a0dad; /* purple */
+}
+
+/* Large rectangular iframe */
+#checklist iframe {
+  width: 100%;
+  height: 2000px;     /* big enough for most sheets */
+  border: none;
+}
+
+
+#checklist .card {
+  background: #f9f9f9; /* Light gray for card */
+  color: var(--text); 
+}
+
+    /* CONTACT */
+
+.contact-box {
+  background: var(--purple);   /* Purple background */
+  color: white;                /* Default text white */
+  padding: 80px 30px;          /* Space inside box */
+        /* Rounded corners */
+  text-align: center;          
+  margin: 0 auto;              /* Center horizontally */
+}
+
+.contact-box h2,
+.contact-box h3 {
+  color: var(--white);         /* Title white or change to var(--purple) if you want purple */
+  margin-bottom: 20px;
+  font-size: 1.8rem;           /* Make title bigger */
+}
+
+.contact-box p {
+  margin-bottom: 15px;         /* Space between paragraphs */
+  font-size: 1rem;
+}
+
+.contact-box a {
+  color: white;                /* White link text */
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-box a:hover {
+  color: var(--purple-light);  /* Hover effect: lighten link */
+}
+
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #f8f8f8;
+      color: #777;
+    }
+  </style>
+  
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <img src="3.png" alt="DATSS Logo">
+    Onboarding Portal
+  </div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="tasks.html">Tasks</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header>
+    <img src="logo.png" alt="DATSS Logo" width="290" height="130">
+    <p></p>
+  </div>
+  <p><br>
+     Support Worker Onboarding Portal</p>
+  <a href="tasks.html" class="btn">Onboard Now ➡</a>
+</header>
+
+<!-- ABOUT -->
+<section id="about" style="padding: 60px 20px; background-color: #f8f9fa;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto;">
+      <h2 style="text-align: center; margin-bottom: 40px;">Welcome to DATSS Onboarding</h2>
+      
+      <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+        
+        <!-- Welcome Box -->
+        <div style="flex: 1 1 300px; background-color: #ffffff; text-align: center; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+          <h3>Welcome</h3>    <img src="6.png" width="290" height="150">
+          <p>
+            Welcome to DATSS! This is the beginning of your journey with us. To get started smoothly, there are important steps and tasks that need your attention. This portal will guide you through everything.
+          </p>
+        </div>
+        
+        <!-- Tasks & Checklists Box -->
+        <div style="flex: 1 1 300px; background-color: #ffffff; text-align: center; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+          <h3>Tasks & Checklists</h3> <img src="7.png" width="150" height="150">
+          <p>
+            Here you will find tasks assigned to you. Please complete them and update your checklist as you go. This ensures your onboarding process is smooth and efficient.
+          </p>
+        </div>
+        
+        <!-- Support Box -->
+        <div style="flex: 1 1 300px; background-color: #ffffff; text-align: center; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+          <h3>Need Help?</h3>  <img src="8.png" width="150" height="150">
+          <p>
+            If you face any issues or have questions, contact our office. Our team is here to support you and ensure you have everything you need during your onboarding journey.
+          </p>
+        </div>
+        
+      </div>
+    </div>
+  </section>   
+
+<!-- CONTACT -->
+<section id="contact">
+      <div class="contact-box">
+        <h2>Contact Us</h2>
+        <p>Reach out via phone and contact the office for any help with onboarding.</p>
+        <p>Office hours are between <strong>8.30am and 4.30pm</strong>.</p>
+        <p style="margin-top: 40px;"><a href="tel:datssonboarding@gmail.com">Email: datssonboarding@gmail.com</a></p>
+        <p style="margin-top: 40px;"><a href="tel:0475169466">Call: 0475 169 466</a></p>
+      </div>
+    </div>
+  </section>
+  
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><strong>DATSS</strong> — Dignity and Transport Support Services</p>
+  <p>© 2026</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://tally.so/widgets/embed.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DATSS | Policy Pack</title>
+
+  <link rel="icon" href="favicon.png">
+
+  <style>
+    :root {
+      --purple: #6a1b9a;
+      --purple-dark: #1e063c;
+      --purple-light: #492376;
+      --white: #ffffff;
+      --text: #444;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--white);
+    }
+
+    /* NAVBAR */
+    nav {
+      background: var(--purple);
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    nav img {
+      height: 38px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--purple);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      max-width: 700px;
+      margin: auto;
+      font-size: 1.1rem;
+    }
+
+    /* CARDS */
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: var(--purple);
+      color: white;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    .card h3 {
+      margin: 15px 0 10px 0;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--purple-dark);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 10px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: var(--purple-light);
+    }
+    .btn-group {
+  display: flex;
+  justify-content: center; /* center buttons horizontally */
+  gap: 10px; /* space between buttons */
+  margin-top: 10px;
+}
+
+.turquoise-btn {
+  background: #0ca7b5; /* turquoise */
+  color: white;
+}
+
+.turquoise-btn:hover {
+  background: #0ca7b5;
+}
+
+.pink-btn {
+  background: #c945ba; /* pink */
+  color: white;
+}
+
+.pink-btn:hover {
+  background: #c945ba;
+}
+
+/* Keep default button styling */
+.btn {
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+/* Toggle buttons */
+.view-btn {
+  background: var(--purple);
+  color: white;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.view-btn:hover {
+  background: var(--purple-light);
+}
+
+/* Grid vs List styles */
+.policy-container.grid .card {
+  display: block;
+  text-align: center;
+}
+
+.policy-container.list {
+  display: block;
+}
+
+.policy-container.list .card {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  padding: 15px 20px;
+}
+
+.policy-container.list .card h3 {
+  flex: 1; /* title takes remaining space */
+}
+/* Small gap between cards in list view */
+.policy-container.list .card {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  padding: 15px 20px;
+  margin-bottom: 10px; /* small gap between each card */
+  border-radius: 8px; /* optional: rounded edges */
+  background: var(--purple); /* keep purple background */
+  color: white; /* text white */
+}
+.policy-container.list .btn-group {
+  flex-shrink: 0;
+  display: flex;
+  gap: 10px;
+}
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #f8f8f8;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">
+    <img src="3.png" alt="DATSS Logo">
+    Onboarding Portal
+  </div>
+  <ul>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="tasks.html">Tasks</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+<section style="background: #450470; text-align: center; padding: 40px 20px; color: white;">
+    <img src="logo.png" alt="DATSS Logo" width="290" height="130" style="display: block; margin: 0 auto 10px auto;">
+    <h1 style="margin: 0 0 10px 0;">Policy Pack</h1>
+    <p style="max-width: 700px; margin: 0 auto;">
+      Welcome to the DATSS Policy Pack! Please take some time to carefully read through each policy.
+    
+      Once you’ve finished, you’ll have to complete a short quiz to confirm your understanding.
+      
+      If there’s anything that requires urgent attention, you can easily check it by clicking on the Admin Notes button.
+      
+      Thank you, and we appreciate your time and attention!
+    </p>
+    
+    <a href="#tally-open=OD091Y&tally-emoji-text=👋&tally-emoji-animation=wave" 
+       style="
+         display: inline-block;
+         margin-top: 20px;
+         padding: 10px 16px;
+         background-color: #fcfbfc;
+         color: #450470;
+         text-decoration: none;
+         border-radius: 6px;
+         font-weight: 600;
+         font-family: Arial, sans-serif;
+       ">
+       📝 Admin Notes
+    </a>
+</section>
+<section style="background: #f5f5f5; padding: 30px 20px; text-align: center;">
+    <div class="container">
+      <input type="text" id="policySearch" placeholder="Search policies..." style="width: 100%; max-width: 500px; padding: 12px 15px; margin-bottom: 2px; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc ;">
+    </div>
+  </section>
+<!-- POLICIES LIST -->
+<section style="background: #f5f5f5; padding: 2px; text-align: center;">
+    <div class="container">
+      <button id="gridViewBtn" class="view-btn">Grid View</button>
+      <button id="listViewBtn" class="view-btn">List View</button>
+    </div>
+  </section>
+  <section>
+    <div class="container policy-container grid" id="policyContainer">
+      
+      <!-- Your cards go here -->
+      <div class="card">
+        <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+        <div class="btn-group">
+          <a href="https://docs.google.com/document/d/1dOetLxPYFVEq5hAjIh1qAPgTv-_WSuhi/edit?usp=sharing" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+          <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+        </div>
+      </div>
+  
+      
+        <div class="card">
+            <h3>📄 Blue Card Policy </h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1dh6_xk9cLi61pS2FgtqB3-IO_vj2Cds3/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/RGLgyK" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+          
+          <div class="card">
+            <h3>📄 Complaints Management Policy and Procedure</h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/19zCYu9a-MEW97b13gRVvMXu787IRx2Fw/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/VL8dOj" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+          
+          <div class="card">
+            <h3>📄 Complex bowel care policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1mx2-Z9zkNnr78dMGqyXXNJtbe6m035bW/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Complex wound care management policy</h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1US0I1aE6Y7isow5mhwwPSMyjaByDdCNM/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Compliance Policy</h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1T20YBxCclAP_O3-uysKCBxOUfoZu76yL/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Conflicts of interest and gifts and benefits policy</h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1Zl6DiI8TeBLeQwviOylJYfVdrnpLjujq/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Continuous improvement policy and procedure </h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/17r3YyaKTqkfaGWIGCz3_bbUvtOi_ld6t/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 DATSS Covid 19 Policy and Procedure</h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1RsarLJBQQwW1kE91_q9pPJYABeUQ3uDk/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 DATSS Emergency Policy and Procedure</h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1B8BjAvJUFXvlA0J9uEtS8FsqTQgBmEJc/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 DATSS Participant Easyread Handbook</h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1DZHlUP7ghjQh1SiADtp7OuApUEYDRLqe/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Development, Induction and Training Policy and Procedure</h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1--2ZQ_X6uktHKmoml35wFWCopGvMRP10/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Drug and Alcohol policy</h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1ECnEDZpVeOwqhdSG7ERwwy3eejxvidaD/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Duty of care and dignity of risk policy</h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1EZQxvFeKW5baNGC0BbXgkoTaO2sQvgVo/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Emergency plan</h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1AhICvvqliDT7NpIdWo-5iD0F4wTwNSiN/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Enteral Feeding and Management policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1rwswi1j4EHPSdXz60VhMIfVcu3MCNE9i/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Equal Employment Opportunity policy Draft</h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1NKiuGrushu8hLVvUeMde2yXbaA1IpGs5/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Escalation for urgent health situations</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Eziplan policy and procedure send</h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1tWOa4ln70bSC4QNwhTB1p22qZnUwzN22/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Feedback Policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1xygSr_SfSWC82g_X3Usj4t55gASa64e4/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Filling Vacancies SIL and SDA Policy</h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/19YhKbnW4Ve_Yz1b4MBV7DjrF4V6b3kiC/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Financial management policy</h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1gJ74rjbPXvfGEWdzZh06f0c6PmferQtj/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Food Handling Policy </h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1ibMhNIBuNByMGCA7hQUC_hprY6qKQ1sC/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Governance and Management policy </h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1OMNciNtXQJp1J3VmoIJxLQkCDh4iZ_gs/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Grievance Policy and Procedure</h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1vXygSSrSywHQ0Fq1BJEJ4xuPz65b-oM_/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 How to use a ACCU Check BSL Machine</h3>
+            <div class="btn-group">
+              <a href="https://drive.google.com/file/d/1jeGQKcoQtBZC3fjwU1AHt1TVAbsdjtHQ/view?usp=sharing" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Human Resources policy </h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/17vFpZQZ5xild6qRB3ZeZILqm5tLL-XJK/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Incident Management policy </h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1t1_AJlpUrqphtC5W4GBQLgzug5-hmY6a/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Infection Control policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1cwQL8GU6qJeTZ2QenmysCtwUhCpjkbHd/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Information Management Policy and Procedure</h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1Riq28J0qUtyJA2gS4JMihtQQILxKlpGt/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Intake and Referral policy</h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1lexSaArPGzmpZGeEuzD047l1kJb92wF_/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Mandatory reporting Policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1YaIsXCSviH_m9tbwNE0wjIHb0xjXv0Zb/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Manual Handling Policy and Procedure</h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1bIW0aCgCqMpN02aW6oA21QmmpF11XS2C/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Mealtime management Policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1MSDD-VmGOY39I87u5pPEPsx7ItFHeK_s/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Medication Policy and Procedure</h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1hEiyGYBedtvkG4jnwo-pbp6J_YaxyVehaaf3bcNRTlY/edit?usp=sharing" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 ORGANISATIONAL AUTHORITY POLICY </h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1mnw8yFnflyMyKnSc8eV6QH_CkFuIujlD/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Participant Dignity and Choice Policy</h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1AHKHVOxC5iua2ypZjLQ12p8ocgJV4Tbh/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Participant rights and responsibilities</h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1w6frQ7QhXRB0l5-VNiN6O3cQGA_vrf6t/edit?usp=sharing&ouid=118136611776522166929&rtpof=true&sd=true" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Pelican Transfere Belt Manual </h3>
+            <div class="btn-group">
+              <a href="https://docs.google.com/document/d/1TV0H0p9wIs_XWff_lhyGHSmAsRHirxVBEEO97OSUCXo/edit?usp=sharing" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>📄 Behaviour support and restrictive interventions policy and procedure</h3>
+            <div class="btn-group">
+              <a href="https:" target="_blank" rel="noopener" class="btn turquoise-btn">Read Policy</a>
+              <a href="https://tally.so/r/1AEMGW" target="_blank" rel="noopener" class="btn pink-btn">Take Quiz</a>
+            </div>
+          </div>
+
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>DATSS</strong> — Dignity and Transport Support Services</p>
+  <p>© 2026</p>
+</footer>
+<script>
+    const searchInput = document.getElementById('policySearch');
+    const cards = document.querySelectorAll('.card');
+  
+    searchInput.addEventListener('input', function() {
+      const query = this.value.toLowerCase();
+  
+      cards.forEach(card => {
+        const text = card.querySelector('h3').textContent.toLowerCase();
+        if(text.includes(query)) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  </script>
+  <script>
+    const gridBtn = document.getElementById('gridViewBtn');
+    const listBtn = document.getElementById('listViewBtn');
+    const container = document.getElementById('policyContainer');
+  
+    gridBtn.addEventListener('click', () => {
+      container.classList.add('grid');
+      container.classList.remove('list');
+    });
+  
+    listBtn.addEventListener('click', () => {
+      container.classList.add('list');
+      container.classList.remove('grid');
+    });
+  </script>
+</body>
+</html>

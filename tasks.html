@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DATSS | Tasks</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.png">
+
+  <style>
+    :root {
+      --purple: #6a1b9a;
+      --purple-dark: #1e063c;
+      --purple-light: #492376;
+      --white: #ffffff;
+      --text: #444;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--white);
+    }
+
+    /* NAVBAR */
+    nav {
+      background: var(--purple);
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    nav img {
+      height: 38px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* HERO */
+    header {
+      background: linear-gradient(to right, var(--purple), var(--purple-dark));
+      color: white;
+      padding: 90px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      max-width: 700px;
+      margin: auto;
+      font-size: 1.1rem;
+    }
+
+    .btn {
+      margin-top: 30px;
+      display: inline-block;
+      background: white;
+      color: var(--purple);
+      padding: 12px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: var(--purple-light);
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 80px 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .light {
+      background: var(--purple-light);
+    }
+
+    h2 {
+      color: purple;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    /* CARDS */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 14px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+
+/* TASKS SECTION */
+#tasks {
+  background: var(--purple); /* Purple section background */
+  color: white; /* Text white for contrast */
+  padding: 80px 20px;
+}
+
+#tasks h2 {
+  color: white; /* Make heading white */
+}
+
+#tasks .card {
+  background: rgba(255, 255, 255, 0.1); /* Slightly transparent card for contrast */
+  color: white; /* Ensure text inside cards is visible */
+}
+
+/* CHECKLIST SECTION */
+#checklist {
+  background: var(--white); /* White section background */
+  color: var(--text); /* Dark text for readability */
+  padding: 80px 20px;
+}
+
+#checklist .checklist-title {
+  color: #6a0dad; /* purple */
+}
+
+/* Large rectangular iframe */
+#checklist iframe {
+  width: 100%;
+  height: 2000px;     /* big enough for most sheets */
+  border: none;
+}
+
+
+#checklist .card {
+  background: #f9f9f9; /* Light gray for card */
+  color: var(--text); 
+}
+
+    /* CONTACT */
+
+.contact-box {
+  background: var(--purple);   /* Purple background */
+  color: white;                /* Default text white */
+  padding: 80px 30px;          /* Space inside box */
+        /* Rounded corners */
+  text-align: center;          
+  margin: 0 auto;              /* Center horizontally */
+}
+
+.contact-box h2,
+.contact-box h3 {
+  color: var(--white);         /* Title white or change to var(--purple) if you want purple */
+  margin-bottom: 20px;
+  font-size: 1.8rem;           /* Make title bigger */
+}
+
+.contact-box p {
+  margin-bottom: 15px;         /* Space between paragraphs */
+  font-size: 1rem;
+}
+
+.contact-box a {
+  color: white;                /* White link text */
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-box a:hover {
+  color: var(--purple-light);  /* Hover effect: lighten link */
+}
+
+.purple-btn {
+  background: var(--purple-dark);
+  color: white;
+}
+
+.purple-btn:hover {
+  background: var(--purple-light);
+  color: white;
+}
+.card {
+  text-align: center;
+}
+.card h3 {
+  margin: 8px 0 5px 0; /* tighter */
+}
+
+.card p {
+  margin: 0 0 0px 0; /* less space before button */
+}
+
+.btn {
+  margin-top:0.00000000000001px; /* smaller gap */
+}
+.pack-icon {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 5px;
+  display: block;
+  margin: 0 auto 0.00000000000001px auto; /* centers image + spacing */
+}
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #f8f8f8;
+      color: #777;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <img src="3.png" alt="DATSS Logo">
+    Onboarding Portal
+  </div>
+  <ul>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="tasks.html">Tasks</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- INTRO -->
+<section style="background: white; text-align: center; padding: 80px 20px;">
+  <div class="container">
+    
+    <img src="logo2.png" alt="DATSS Logo" class="header-logo" width="310" height="150">
+
+    <h2>Start Your Onboarding</h2>
+
+    <p style="max-width: 700px; margin: auto;">
+      Welcome to the DATSS onboarding process. Listed below are the required packs that must be completed before you begin. Click on the button for each pack to review the details and complete the necessary tasks.
+    </p>
+    
+  </div>
+</section>
+
+<!-- PACKS -->
+<section style="background: var(--purple); color: white;">
+  <div class="container">
+    <h2 style="color: white;">Onboarding Packs</h2>
+
+    <div class="grid">
+      <div class="card">
+        <img src="12.png" alt="Policy Pack" class="pack-icon" width="250" height="380">>
+        <h3>Policy Pack</h3>
+        <p>Review all required policies before starting.</p>
+        <a href="policy.html" class="btn purple-btn">Policy Pack ➡</a>
+      </div>
+    
+      <div class="card">
+        <img src="10.png" alt="Application Pack" class="pack-icon" width="150" height="150">>
+        <h3>Application Pack</h3>
+        <p>Complete all formal documentation and requirements.</p>
+        <a href="#" class="btn purple-btn">Application Pack ➡</a>
+      </div>
+    
+      <div class="card">
+        <img src="11.png" alt="Induction Pack" class="pack-icon" width="150" height="150">>
+        <h3>Induction Pack</h3>
+        <p>Learn the essential training to begin working.</p>
+        <a href="#" class="btn purple-btn">Induction Pack ➡</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DETAILS -->
+<section style="background: white;">
+  <div class="container">
+
+    <div class="card" style="margin-bottom: 30px; background: var(--purple); color: white;">
+      <h3>Policy Pack</h3>
+      <p>
+        The Policy Pack contains essential guidelines and procedures that must be understood before commencing work at DATSS.
+        Each policy is designed to ensure safe, compliant, and high-quality service delivery. After reviewing each policy,
+        you will be required to complete a short quiz and achieve a satisfactory score (out of 10) to demonstrate your understanding.
+      </p>
+    </div>
+
+    <div class="card" style="margin-bottom: 30px; background: var(--purple); color: white;">
+      <h3>Application Pack</h3>
+      <p>
+        The Application Pack is a critical step in the onboarding process. It includes all required documentation such as
+        personal details, certifications, and background checks. Once completed, you will be able to upload your documents
+        through the provided submission option for review and approval.
+      </p>
+    </div>
+
+    <div class="card" style="background: var(--purple); color: white;">
+      <h3>Induction Pack</h3>
+      <p>
+        The Induction Pack provides the training and key information required to begin working safely and effectively at DATSS.
+        It covers your responsibilities, workplace expectations, and essential procedures to ensure you are fully prepared for your role.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<footer>
+  <p><strong>DATSS</strong> — Dignity and Transport Support Services</p>
+  <p>© 2026</p>
+</footer>
+
+</body>
+</html>
